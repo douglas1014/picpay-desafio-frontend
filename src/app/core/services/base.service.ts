@@ -37,14 +37,14 @@ export class BaseService<T> {
     return this.httpClient
       .post(
         `${this.baseUrl}${this.path}`,
-        JSON.stringify(body)
+        body
       )
       .pipe(catchError((e: HttpErrorResponse) => throwError(e)));
   }
 
   public put = (id: string, body: T): Observable<any> => {
     return this.httpClient
-      .put(`${this.baseUrl}${this.path}/${id}`, JSON.stringify(body))
+      .put(`${this.baseUrl}${this.path}/${id}`, body)
       .pipe(catchError((e: HttpErrorResponse) => throwError(e)));
   }
 

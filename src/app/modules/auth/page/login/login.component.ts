@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/auth/auth.service';
 
-import { UsuarioService } from '../../services/usuario.service';
 import { LoginForm } from './login-form';
 
 @Component({
@@ -21,7 +21,7 @@ export class LoginComponent {
 
   constructor(
     private router: Router,
-    private usuarioService: UsuarioService
+    private authService: AuthService
   ) {
     this._form = new LoginForm();
   }
@@ -44,12 +44,12 @@ export class LoginComponent {
         const params: URLSearchParams = new URLSearchParams();
         params.append('email', this.form.email.value);
         params.append('password', this.form.password.value);
-        this.get(params);
+        this.getAuthenticate(params);
     }
   }
 
-  public get(params: URLSearchParams): void {
-    this.usuarioService.getByFilter(params).subscribe(() => {
+  public getAuthenticate(params: URLSearchParams): void {
+    this.authService.getAuthenticate(params).subscribe(() => {
       this.router.navigate(['/pagamentos'])
     })
   }

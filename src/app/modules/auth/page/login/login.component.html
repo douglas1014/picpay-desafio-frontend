@@ -6,7 +6,7 @@
         <form [formGroup]="form">
             <div>
                 <div class="label-float">
-                    <input type="text" placeholder=" " formControlName="email" inputmode="email" [ngClass]="[
+                    <input type="email" placeholder=" " formControlName="email" inputmode="email" [ngClass]="[
                     isFieldValid(form, 'email') ? 'required' : ''
                     ]"/>
                     <label>Email</label>

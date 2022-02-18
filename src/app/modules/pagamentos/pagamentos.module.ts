@@ -11,6 +11,7 @@ import { PAGAMENTOS_ROUTES } from './pagamentos-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { ExcluirComponent } from './components/excluir/excluir.component';
+import { NgxCurrencyModule } from 'ngx-currency';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ExcluirComponent } from './components/excluir/excluir.component';
     NgxPaginationModule,
     SharedModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxCurrencyModule
   ],
   exports: [NgxPaginationModule]
 })

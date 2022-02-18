@@ -14,8 +14,8 @@
             <tr>
                 <th scope="row">{{ item.name }} <br><small>@{{ item.username }}</small></th>
                 <td>{{ item.title }}</td>
-                <td>{{ item.date }} <br><small>{{ item.hours}}</small></td>
-                <td>{{ item.value }}</td>
+                <td>{{ item.date  | date: 'dd MMM y' }} <br><small>{{ item.hours }}</small></td>
+                <td>{{ item.value | money }}</td>
                 <td><input type="checkbox" value="true" [checked]="item.isPayed"></td>
                 <td>
                     <em class="fa fa-pencil mr-3" title="editar" (click)="update(item)"></em>

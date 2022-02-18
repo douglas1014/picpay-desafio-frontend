@@ -5,11 +5,4 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './layout-auth.component.html',
   styleUrls: ['./layout-auth.component.scss']
 })
-export class LayoutAuthComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class LayoutAuthComponent {}

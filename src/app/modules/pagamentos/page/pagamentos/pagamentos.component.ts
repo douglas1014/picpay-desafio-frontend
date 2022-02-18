@@ -30,9 +30,8 @@ export class PagamentosComponent implements OnInit {
     this.pagamentoService.getByFilter(params).pipe(map(res => res.map((item) => new PagamentosInfoDto(item)))).subscribe((res) => {
       this.pagamentos = res;
       this.pagamentos.map((res) => {
-        res.value = Utils.formatMoney(res.value);
         res['hours'] = Utils.convertHour(res.date);
-        res.date = Utils.convertDate(res.date);
+        // res.date = Utils.convertDate(res.date);
       });
     });
   }

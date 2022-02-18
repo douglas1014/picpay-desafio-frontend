@@ -18,6 +18,7 @@ export class CadastroComponent implements OnInit {
 
   @Input() public dataSource: PagamentosInfoDto;
   @Input() public title: string;
+  public inputType: string;
   private _form: CadastroForm;
 
   public get form(): CadastroForm {
@@ -33,8 +34,13 @@ export class CadastroComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.dataSource) {
+      console.log(new Date(this.dataSource.date));
       Utils.pathValueForm(this.dataSource, this.form);
     }
+  }
+
+  public mask(value): string {
+    return Utils.formatMoney(value)
   }
 
   public closeModal(value?: boolean) {
@@ -68,5 +74,13 @@ export class CadastroComponent implements OnInit {
 
   public isFieldValid(form: FormGroup, field: string) {
     return !form.get(field).valid && form.get(field).dirty;
+  }
+
+  public dateText(): void {
+    (this.inputType === 'date') ?  this.inputType = 'text' :  this.inputType = 'date';
+  }
+
+  public textDate(): void {
+    this.inputType = 'text'
   }
 }

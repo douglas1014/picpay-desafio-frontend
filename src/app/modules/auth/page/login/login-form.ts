@@ -4,11 +4,12 @@ export class LoginForm extends FormGroup {
     
     private _errorMessages = {
         required: 'O campo %s é obrigatório.',
+        email: 'Digite um email valido'
     };
 
     constructor() {
         super({
-            email: new FormControl(null, [Validators.required]),
+            email: new FormControl(null, [Validators.required, Validators.email]),
             password: new FormControl(null, [Validators.required])
         });
     }
