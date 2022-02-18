@@ -7,6 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class TemplateModalComponent {
 
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() public close: EventEmitter<any> = new EventEmitter();
   @Input() public title: string;
 
