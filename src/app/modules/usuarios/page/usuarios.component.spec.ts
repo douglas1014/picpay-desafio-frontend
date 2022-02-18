@@ -1,4 +1,8 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { UsuarioService } from '../../auth/services/usuario.service';
+
 
 import { UsuariosComponent } from './usuarios.component';
 
@@ -8,18 +12,16 @@ describe('UsuariosComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UsuariosComponent ]
+        imports: [HttpClientTestingModule],
+        declarations: [UsuariosComponent],
+        providers: [NgbActiveModal, UsuarioService]
     })
-    .compileComponents();
-  });
+        .compileComponents();
+});
 
-  beforeEach(() => {
+beforeEach(() => {
     fixture = TestBed.createComponent(UsuariosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+});
 });
