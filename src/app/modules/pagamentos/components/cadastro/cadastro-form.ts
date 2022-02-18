@@ -12,9 +12,11 @@ export class CadastroForm  extends FormGroup {
         super({
             id: new FormControl(null),
             name: new FormControl(null, [Validators.required]),
+            username: new FormControl(null, [Validators.required]),
             value: new FormControl(null, [Validators.required]),
             date: new FormControl(null, [Validators.required]),
-            title: new FormControl(null, [Validators.required])
+            title: new FormControl(null),
+            isPayed: new FormControl(null, [Validators.required]),
         });
     }
 
@@ -24,6 +26,10 @@ export class CadastroForm  extends FormGroup {
 
     public get name(): AbstractControl {
         return this.get('name');
+    }
+
+    public get username(): AbstractControl {
+        return this.get('username');
     }
 
     public get valor(): AbstractControl {
@@ -36,6 +42,10 @@ export class CadastroForm  extends FormGroup {
 
     public get title(): AbstractControl {
         return this.get('title');
+    }
+
+    public get isPayed(): AbstractControl {
+        return this.get('isPayed');
     }
   
     public markAllAsTouched(): void {

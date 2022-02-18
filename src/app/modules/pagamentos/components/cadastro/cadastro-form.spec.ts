@@ -7,9 +7,11 @@ describe('CadastroForm', () => {
     component.setValue({
       "id": "idTest",
       "name": "nameTest",
+      "username": "@nameTest",
       "value": "valueTest",
       "date": "12/12/2020",
       "title": "Title Test",
+      "isPayed": "true",
     });
   });
 
@@ -24,17 +26,29 @@ describe('CadastroForm', () => {
   it('should get id', () => {
     expect(component.id).not.toBeNull();
   });
+
   it('should get name', () => {
     expect(component.name).not.toBeNull();
   });
+
+  it('should get username', () => {
+    expect(component.username).not.toBeNull();
+  });
+
   it('should get value', () => {
     expect(component.valor).not.toBeNull();
   });
+
   it('should get date', () => {
     expect(component.date).not.toBeNull();
   });
+
   it('should get title', () => {
     expect(component.title).not.toBeNull();
+  });
+
+  it('should get isPayed', () => {
+    expect(component.isPayed).not.toBeNull();
   });
 
 
@@ -54,9 +68,11 @@ describe('CadastroForm', () => {
     component.setValue({
       "id": "idTest",
       "name": "",
+      "username": "@nameTest",
       "value": "valueTest",
       "date": "12/12/2020",
       "title": "Title Test",
+      "isPayed": "true",
     });
     expect(component.getFirstErrorFrom('name', 'name')).not.toBeNull();
   });

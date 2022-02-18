@@ -1,64 +1,73 @@
 <app-template-modal (close)="closeModal()" [title]="title">
     <div conteudo>
-       <form [formGroup]="form">
-           <div class="container row">
-               <div class="col-6">
-                <div class="label-float mt-4">
-                    <input type="text" placeholder=" " formControlName="name" inputmode="text" [ngClass]="[
-                    isFieldValid(form, 'name') ? 'required' : ''
-                    ]"/>
-                    <label>Usuario *</label>
-                    <div class="mt-1 text-danger text-monospace" *ngIf="isFieldValid(form, 'name')">
-                        <small>{{ form.getFirstErrorFrom('name', 'usuario') }}</small>
+        <form [formGroup]="form">
+            <div class="container-fluid row">
+                <div class="col-3 mr-3">
+                    <div class="label-float mr-4 mt-4">
+                        <input type="text" placeholder=" " formControlName="username" inputmode="text" [ngClass]="[
+                        isFieldValid(form, 'username') ? 'required' : ''
+                        ]" />
+                        <label>Usuario *</label>
+                        <div class="mt-1 text-danger text-monospace" *ngIf="isFieldValid(form, 'username')">
+                            <small>{{ form.getFirstErrorFrom('username', 'Usuario') }}</small>
+                        </div>
+                    </div>
+
+                    <div class="label-float mt-4">
+                        <input [type]="inputType" placeholder=" " formControlName="date" (blur)="dateText()"
+                            (focus)="dateText()" inputmode="text" [ngClass]="[
+                        isFieldValid(form, 'date') ? 'required' : ''
+                        ]" />
+                        <label>Data *</label>
+                        <div class="mt-1 text-danger text-monospace" *ngIf="isFieldValid(form, 'date')">
+                            <small>{{ form.getFirstErrorFrom('date', 'data') }}</small>
+                        </div>
                     </div>
                 </div>
 
-                <div class="label-float mt-4">
-                    <input [type]="inputType" placeholder=" " formControlName="date" (blur)="dateText()" (focus)="dateText()" inputmode="text" [ngClass]="[
-                    isFieldValid(form, 'date') ? 'required' : ''
-                    ]"/>
-                    <label>Data *</label>
-                    <div class="mt-1 text-danger text-monospace" *ngIf="isFieldValid(form, 'date')">
-                        <small>{{ form.getFirstErrorFrom('date', 'data') }}</small>
-                    </div>
-                </div>
-               </div>
-
-               <div class="col-6">
-                <div class="label-float mt-4">
-                    <input type="text"
-                        placeholder=" " 
-                        formControlName="value" 
-                        [options]="{ align: 'left', prefix: 'R$ ', thousands: '.', decimal: ',' }" 
-                        currencyMask  
-                        inputmode="text" 
-                        [ngClass]="[
+                <div class="col-4 ml-5">
+                    <div class="label-float mt-4">
+                        <input type="text" placeholder=" " formControlName="value"
+                            [options]="{ align: 'left', prefix: 'R$ ', thousands: '.', decimal: ',' }" currencyMask
+                            inputmode="text" [ngClass]="[
                             isFieldValid(form, 'value') ? 'required' : ''
-                            ]"/>
-                    <label>Valor *</label>
-                    <div class="mt-1 text-danger text-monospace" *ngIf="isFieldValid(form, 'value')">
-                        <small>{{ form.getFirstErrorFrom('value', 'valor') }}</small>
+                            ]" />
+                        <label>Valor *</label>
+                        <div class="mt-1 text-danger text-monospace" *ngIf="isFieldValid(form, 'value')">
+                            <small>{{ form.getFirstErrorFrom('value', 'valor') }}</small>
+                        </div>
+                    </div>
+                    <div class="label-float mt-4">
+                        <input type="text" placeholder=" " formControlName="title" inputmode="text" />
+                        <label>Titulo</label>
                     </div>
                 </div>
-                <div class="label-float mt-4">
-                    <input
-                    type="text" 
-                    placeholder=" " 
-                    formControlName="title" 
-                    inputmode="text" 
-                    [ngClass]="[
-                        isFieldValid(form, 'title') ? 'required' : ''
-                        ]"/>
-                    <label>Titulo *</label>
-                    <div class="mt-1 text-danger text-monospace" *ngIf="isFieldValid(form, 'title')">
-                        <small>{{ form.getFirstErrorFrom('title', 'titulo') }}</small>
+
+                <div class="col-4">
+                    <div class="label-float mt-4">
+                        <input type="text" placeholder=" " formControlName="name" inputmode="text" [ngClass]="[
+                    isFieldValid(form, 'name') ? 'required' : ''
+                    ]" />
+                        <label>Nome *</label>
+                        <div class="mt-1 text-danger text-monospace" *ngIf="isFieldValid(form, 'name')">
+                            <small>{{ form.getFirstErrorFrom('name', 'nome') }}</small>
+                        </div>
                     </div>
+
+                    <div class="mt-4">
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label mr-2 mt-4" for="inlineCheckbox1">Realizar o pagamento ?</label>
+                            <input class="form-check-input mt-4" type="checkbox" formControlName="isPayed" id="inlineCheckbox1" value="option1">
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-light col-4 float-left mb-4 mr-3 mt-4" title="cancelar"
+                        (click)="closeModal()">Cancelar</button>
+                    <button class="btn btn-sm btn-primary col-4 float-left mb-4 mt-4" title="salvar"
+                        (click)="submit()">Salvar</button>
                 </div>
-                <button class="btn btn-sm btn-light col-4 float-left mb-4 mt-4"  title="cancelar" (click)="closeModal()">Cancelar</button>
-                <button class="btn btn-sm btn-primary col-4 float-left mb-4 mt-4"  title="salvar" (click)="submit()">Salvar</button>
-               </div>
-           </div>
-       </form>
-      
+            </div>
+
+        </form>
+
     </div>
 </app-template-modal>

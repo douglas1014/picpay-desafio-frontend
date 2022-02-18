@@ -3,11 +3,11 @@
 <div class="container content mt-5">
     <app-table [items]="pagamentos" (filters)="filter($event)">
         <tr header>
-            <th scope="col">Usuario <em class="fas fa-sort"></em></th>
-            <th scope="col">Ttulo<em class="fas fa-sort"></em></th>
-            <th scope="col">Data<em class="fas fa-sort"></em></th>
-            <th scope="col">Valor<em class="fas fa-sort"></em></th>
-            <th scope="col">Pago<em class="fas fa-sort"></em></th>
+            <th scope="col">Usuario <em class="dropdown-toggle"></em></th>
+            <th scope="col">Ttulo <em class="dropdown-toggle"></em></th>
+            <th scope="col">Data <em class="dropdown-toggle"></em></th>
+            <th scope="col">Valor <em class="dropdown-toggle"></em></th>
+            <th scope="col">Pago <em class="dropdown-toggle"></em></th>
             <th scope="col"></th>
         </tr>
         <ng-template appTableBody let-item>
