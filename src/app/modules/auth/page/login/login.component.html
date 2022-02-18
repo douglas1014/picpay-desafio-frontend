@@ -1,12 +1,13 @@
 <div class="content">
     <div class="login-box">
-      <div class="box-left" style="background-color:#F2F2F2;">
-          <h2 class="text-logo mb-0 mt-3" style="color: #001f3f;">PayFriends</h2>
-          <p>Bem vindo de volta</p>
+      <div class=" box-left container-fluid">
         <form [formGroup]="form">
+          <img class="float-left" src="../../../../../assets/Logo.png" alt="img"/>
+          <br>
+          <h4 class="text-left">Bem vindo de volta</h4>
             <div>
                 <div class="label-float">
-                    <input type="email" placeholder=" " formControlName="email" inputmode="email" [ngClass]="[
+                    <input type="email" class="col-md-12" placeholder=" " formControlName="email" inputmode="email" [ngClass]="[
                     isFieldValid(form, 'email') ? 'required' : ''
                     ]"/>
                     <label>Email</label>
@@ -25,7 +26,7 @@
                         <small>{{ form.getFirstErrorFrom('password', 'password') }}</small>
                     </div>
                   </div>
-                 <button type="button" class="btn btn-primary mt-4 col-12" (click)="submit()">entrar</button>
+                 <button type="button" title="Entrar" class="btn btn-primary mt-4 col-12 col-md-12" (click)="submit()">entrar</button>
             </div>
         </form>
       </div>
@@ -34,7 +35,6 @@
       </div>
     </div>
   </div>
-  <div id="background"></div>
 
 
 

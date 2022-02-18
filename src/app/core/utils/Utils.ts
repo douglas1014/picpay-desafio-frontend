@@ -27,17 +27,6 @@ export class Utils {
     }
 
     /**
-     * Função para converter data
-     * @param date 
-     * @returns data formatada
-     */
-    static convertDateDMY(date: string | Date): string {
-        let data = new Date(date);
-        console.log(data);
-        return (data.getDate() + " " + data.getMonth() + " " + data.getFullYear());
-    }
-
-    /**
      * Função para converter horas
      * @param hours 
      * @returns hora formatada
@@ -47,17 +36,12 @@ export class Utils {
         return  data.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
     }
     /**
-     * Função para formatar valor monetario
-     * @param value 
+     * 
+     * @param modalService 
+     * @param component 
+     * @param size 
      * @returns 
      */
-    static formatMoney(value: string): string {
-      return Number(value).toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'BRL'
-        });
-    }
-
     static openModal(modalService: NgbModal, component: any, size: string = 'md'): NgbModalRef {
         return modalService.open(component, 
             { backdrop: 'static', size, keyboard: false, windowClass: 'modal-custom-' + size});

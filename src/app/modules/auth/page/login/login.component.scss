@@ -2,43 +2,31 @@
     width: 100%;
     height: 100vh;
     background-color: ¨#F2F2F2;
-    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
   
     .login-box {
-      width: 80%;
-      height: 80vh;
+      width: 60%;
+      height: 100vh;
       background-color: #ffffff;
       z-index: 2;
-  
       display: flex;
       flex-direction: row;
   
       .box-left {
-        width: 100%;
+        width: 200%;
         height: 100%;
-        background-color:#fff;
+        background-color:#F2F2F2;;
         z-index: 1;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         text-align: center;
-  
-        .text-logo{
-          color: #fff;
-          font-weight: 900;
-        }
-  
-        .brand-image {
-          max-width: 50%;
-          height: auto;
-        }
       }
+
       .box-right {
-        width: 100%;
         height: 100%;
         background-color: #fff;
         z-index: 1;
@@ -46,13 +34,15 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-  
-        form {
-          width: 80%;
+
+        .text-logo{
           color: #fff;
-          a {
-            color: #fff;
-          }
+          font-weight: 900;
+        }
+  
+        .brand-image {
+          max-width: 100vh;
+          height: auto;
         }
       }
     }
@@ -103,11 +93,21 @@
     }
   }
   
-  @media (min-width: 576px) and (max-width: 991.98px) {
+  @media (min-width: 375px) and (max-width: 991.98px) {
+   .content .login-box .box-right  {
+      display: none;
+    } 
+
+   .content .login-box .box-left  {
+      height: 100vh;
+    } 
+
     .content .login-box {
-      width: 90% !important;
+      width: 100% !important;
+      height: 200vh !important;
+      
     }
-  
+
     #background {
       top: 0px;
       right: 0px;
