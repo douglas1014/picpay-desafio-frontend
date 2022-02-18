@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import * as moment from 'moment';
 import { map } from 'rxjs/operators';
 
 import { PagamentosInfoDto } from 'src/app/core/dtos/pagamentos-info-dto';
@@ -31,7 +32,6 @@ export class PagamentosComponent implements OnInit {
       this.pagamentos = res;
       this.pagamentos.map((res) => {
         res['hours'] = Utils.convertHour(res.date);
-        // res.date = Utils.convertDate(res.date);
       });
     });
   }
@@ -58,6 +58,7 @@ export class PagamentosComponent implements OnInit {
   public update(item: PagamentosInfoDto): void {
    const modalRef = Utils.openModal(this.modalService, CadastroComponent, 'lg');
    modalRef.componentInstance.dataSource = item;
+   item.date = moment(item.date).format('MM/DD/YYYY');
    modalRef.componentInstance.title = 'Atualizar pagamento';
    modalRef.result.then(result => {
     if (result) {

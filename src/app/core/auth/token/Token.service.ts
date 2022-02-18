@@ -22,5 +22,4 @@ export class TokenService {
   public removeToken() {
     window.localStorage.removeItem(key);
   }
-
 }

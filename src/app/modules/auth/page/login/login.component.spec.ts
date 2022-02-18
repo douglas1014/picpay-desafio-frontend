@@ -1,20 +1,53 @@
-import { ComponentFixture } from '@angular/core/testing';
-import { Router } from '@angular/router';
-import { MockBuilder, MockRender } from 'ng-mocks'
-import { AuthService } from 'src/app/core/auth/auth.service';
+import { LoginForm } from './login-form';
 
-import { LoginComponent } from './login.component';
-
-describe('LoginComponent', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
-
-  beforeEach(() => {
-    return MockBuilder(LoginComponent).mock([Router, AuthService]);
+describe('LoginForm', () => {
+  it('should create an instance', () => {
+    expect(new LoginForm()).toBeTruthy();
   });
 
-  it('should create', () => {
-    const fixture = MockRender(LoginComponent);
-    expect(fixture.point.componentInstance).toBeDefined();
+  it('should be valid if form value is valid', () => {
+    let component = new LoginForm()
+    component.setValue({
+      "password": "Bobby",
+      "email": "bobby@bobby.com",
+    });
+
+    expect(component.valid).toEqual(true);
   });
+  it('should be get password', () => {
+    let component = new LoginForm()
+    component.setValue({
+      "password": "Bobby",
+      "email": "bobby@bobby.com",
+    });
+    expect(component.password).not.toBeNull();
+  });
+
+  it('should be get email', () => {
+    let component = new LoginForm()
+    component.setValue({
+      "password": "Bobby",
+      "email": "bobby@bobby.com",
+    });
+
+    expect(component.email).not.toBeNull();
+  });
+
+  it('should markAllAsTouched', () => {
+    let component = new LoginForm()
+    component.setValue({
+      "password": "",
+      "email": "bobby@bobby.com",
+    });
+    expect(component.markAllAsTouched()).not.toBeNull();
+  });
+  it('should getFirstErrorFrom', () => {
+    let component = new LoginForm()
+    component.setValue({
+      "password": "",
+      "email": "bobby@bobby.com",
+    });
+    expect(component.getFirstErrorFrom('password', 'password')).not.toBeNull();
+  });
+
 });

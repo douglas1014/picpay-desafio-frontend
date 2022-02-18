@@ -27,20 +27,15 @@ export class CadastroComponent implements OnInit {
 
   constructor(
     public activeModal: NgbActiveModal,
-    private pagamentoService: PagamentoService
+    private pagamentoService: PagamentoService,
   ) {
     this._form = new CadastroForm();
   }
 
   ngOnInit(): void {
     if (this.dataSource) {
-      console.log(new Date(this.dataSource.date));
       Utils.pathValueForm(this.dataSource, this.form);
     }
-  }
-
-  public mask(value): string {
-    return Utils.formatMoney(value)
   }
 
   public closeModal(value?: boolean) {
@@ -61,15 +56,15 @@ export class CadastroComponent implements OnInit {
   public update(): void {
     this.pagamentoService.put(this.form.id.value, this.form.getDadosEnvioUpdate()).subscribe((res) => {
       SweetalertCustom.showAlertTimer2('success', 'Operação realizada com sucesso');
-      this.closeModal(true)
-    })
+      this.closeModal(true);
+    });
   }
 
   public create(): void {
     this.pagamentoService.post(this.form.getDadosEnvioCreate()).subscribe((res) => {
       SweetalertCustom.showAlertTimer2('success', 'Operação realizada com sucesso');
-      this.closeModal(true)
-    })
+      this.closeModal(true);
+    });
   }
 
   public isFieldValid(form: FormGroup, field: string) {
@@ -77,10 +72,6 @@ export class CadastroComponent implements OnInit {
   }
 
   public dateText(): void {
-    (this.inputType === 'date') ?  this.inputType = 'text' :  this.inputType = 'date';
-  }
-
-  public textDate(): void {
-    this.inputType = 'text'
+    (this.form.date.value) ? this.inputType = 'date' : this.inputType = 'date';
   }
 }

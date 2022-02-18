@@ -20,10 +20,21 @@ export class Utils {
      * @param date 
      * @returns data formatada
      */
-    static convertDate(date: string): string {
+    static convertDate(date: string | Date): string {
         const meses = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
         let data = new Date(date);
         return (data.getDate() + " " + meses[(data.getMonth())] + " " + data.getFullYear());
+    }
+
+    /**
+     * Função para converter data
+     * @param date 
+     * @returns data formatada
+     */
+    static convertDateDMY(date: string | Date): string {
+        let data = new Date(date);
+        console.log(data);
+        return (data.getDate() + " " + data.getMonth() + " " + data.getFullYear());
     }
 
     /**
@@ -31,7 +42,7 @@ export class Utils {
      * @param hours 
      * @returns hora formatada
      */
-    static convertHour(date: string): string {
+    static convertHour(date: string | Date): string {
         let data = new Date(date);
         return  data.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
     }

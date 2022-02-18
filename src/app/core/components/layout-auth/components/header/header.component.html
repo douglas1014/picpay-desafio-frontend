@@ -1,13 +1,22 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-color">
-    <a class="navbar-brand" href="#"><h3>Pay<small>Friends</small></h3></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto"></ul>
-      <span class="navbar-text">
-        <img src="../../../../../../assets/Ellipse 2.png" class="rounded-circle mr-2" alt="...">
-        <a (click)="logout()"> <em class="fas fas fa-sign-out-alt"></em> sair </a>
-      </span>
-    </div>
-  </nav>
+  <a class="navbar-brand" href="#">
+    <h3>Pay<small>Friends</small></h3>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto"></ul>
+    <img src="../../../../../../assets/Ellipse 2.png" class="rounded-circle mr-2" alt="...">
+    <span class="navbar-text">
+      <div class="btn-group">
+        <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <button class="dropdown-item" type="button"  (click)="logout()">Sair</button>
+        </div>
+      </div>
+    </span>
+  </div>
+</nav>

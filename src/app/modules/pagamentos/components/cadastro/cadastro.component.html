@@ -12,6 +12,7 @@
                         <small>{{ form.getFirstErrorFrom('name', 'usuario') }}</small>
                     </div>
                 </div>
+
                 <div class="label-float mt-4">
                     <input [type]="inputType" placeholder=" " formControlName="date" (blur)="dateText()" (focus)="dateText()" inputmode="text" [ngClass]="[
                     isFieldValid(form, 'date') ? 'required' : ''
@@ -25,18 +26,29 @@
 
                <div class="col-6">
                 <div class="label-float mt-4">
-                    <input type="text" placeholder=" " formControlName="value" [options]="{ align: 'left', prefix: 'R$ ', thousands: '.', decimal: ',' }" currencyMask  inputmode="text" [ngClass]="[
-                    isFieldValid(form, 'value') ? 'required' : ''
-                    ]"/>
+                    <input type="text"
+                        placeholder=" " 
+                        formControlName="value" 
+                        [options]="{ align: 'left', prefix: 'R$ ', thousands: '.', decimal: ',' }" 
+                        currencyMask  
+                        inputmode="text" 
+                        [ngClass]="[
+                            isFieldValid(form, 'value') ? 'required' : ''
+                            ]"/>
                     <label>Valor *</label>
                     <div class="mt-1 text-danger text-monospace" *ngIf="isFieldValid(form, 'value')">
                         <small>{{ form.getFirstErrorFrom('value', 'valor') }}</small>
                     </div>
                 </div>
                 <div class="label-float mt-4">
-                    <input type="text" placeholder=" " formControlName="title" inputmode="text" [ngClass]="[
-                    isFieldValid(form, 'title') ? 'required' : ''
-                    ]"/>
+                    <input
+                    type="text" 
+                    placeholder=" " 
+                    formControlName="title" 
+                    inputmode="text" 
+                    [ngClass]="[
+                        isFieldValid(form, 'title') ? 'required' : ''
+                        ]"/>
                     <label>Titulo *</label>
                     <div class="mt-1 text-danger text-monospace" *ngIf="isFieldValid(form, 'title')">
                         <small>{{ form.getFirstErrorFrom('title', 'titulo') }}</small>

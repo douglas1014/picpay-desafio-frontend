@@ -1,6 +1,6 @@
 export class PagamentosInfoDto {
     public id: number;
-    public date: string;
+    public date: any;
     public image: string;
     public isPayed: boolean;
     public name: string;
