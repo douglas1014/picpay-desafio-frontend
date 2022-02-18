@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { UsuarioService } from 'src/app/modules/auth/services/usuario.service';
+import { SweetalertCustom } from 'src/app/shared/shared/utils/sweetalert-custom';
 
 import { BaseService } from '../services/base.service';
 import { urlConfigs } from '../utils/url-configs';
@@ -21,7 +22,12 @@ export class AuthService extends BaseService<any> {
     return this.httpClient
       .get(`${this.baseUrl}${this.path}${filters}`)
       .pipe(tap((res: Array<any>) => {
-        this.usuarioService.setUser = res.shift();
+        if (res.length >= 1) {
+          this.usuarioService.setUser = res.shift();
+          return;
+        }
+
+        SweetalertCustom.showAlertTimer2('info', 'Atenção', 'Usuario não encontrado');
       }),catchError((e: HttpErrorResponse) => throwError(e)));
   }
 

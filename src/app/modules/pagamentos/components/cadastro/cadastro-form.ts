@@ -16,7 +16,7 @@ export class CadastroForm  extends FormGroup {
             value: new FormControl(null, [Validators.required]),
             date: new FormControl(null, [Validators.required]),
             title: new FormControl(null),
-            isPayed: new FormControl(null, [Validators.required]),
+            isPayed: new FormControl(null),
         });
     }
 

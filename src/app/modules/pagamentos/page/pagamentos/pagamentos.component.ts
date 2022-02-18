@@ -17,6 +17,7 @@ import { PagamentoService } from '../../service/pagamento.service';
 export class PagamentosComponent implements OnInit {
 
   public pagamentos: PagamentosInfoDto[] = [];
+  public orderItens: string;
 
   constructor(
     private pagamentoService: PagamentoService,
@@ -29,17 +30,23 @@ export class PagamentosComponent implements OnInit {
 
   public getAll(params?: URLSearchParams ): void {
     this.pagamentoService.getByFilter(params).pipe(map(res => res.map((item) => new PagamentosInfoDto(item)))).subscribe((res) => {
-      this.pagamentos = res.splice(0).reverse();
+      this.pagamentos = res;
       this.pagamentos.map((res) => {
         res['hours'] = Utils.convertHour(res.date);
       });
     });
   }
 
-  public filter(value?: string): void {
+  public filter(value?: string, order?: boolean): void {
     const params: URLSearchParams = new URLSearchParams();
-    if (value) {
+    if (value && !order) {
       params.append('name', value);
+    }
+
+    if (order) {
+      (this.orderItens === 'asc') ? this.orderItens = 'desc' : this.orderItens = 'asc';
+      params.append('_sort', value);
+      params.append('_order', this.orderItens);
     }
     
     this.getAll(params);

@@ -26,10 +26,6 @@ export class LoginComponent {
     this._form = new LoginForm();
   }
 
-  public isFieldValid(form: FormGroup, field: string) {
-    return !form.get(field).valid && form.get(field).dirty;
-  }
-
   public viewPassword(): void {
     if (this.typeInput === 'text') {
       this.typeInput = 'password';
@@ -52,5 +48,9 @@ export class LoginComponent {
     this.authService.getAuthenticate(params).subscribe(() => {
       this.router.navigate(['/pagamentos'])
     })
+  }
+
+  public isFieldValid(form: FormGroup, field: string) {
+    return !form.get(field).valid && form.get(field).dirty;
   }
 }
