@@ -29,7 +29,7 @@ export class PagamentosComponent implements OnInit {
 
   public getAll(params?: URLSearchParams ): void {
     this.pagamentoService.getByFilter(params).pipe(map(res => res.map((item) => new PagamentosInfoDto(item)))).subscribe((res) => {
-      this.pagamentos = res;
+      this.pagamentos = res.splice(0).reverse();
       this.pagamentos.map((res) => {
         res['hours'] = Utils.convertHour(res.date);
       });
