@@ -1,27 +1,27 @@
 <H3>Meus Pagamentos</H3>
-<button class="btn btn-sm btn-primary float-right"  title="adicionar pagamento" (click)="openModal()">ADICIONAR PAGAMENTO</button>
-<div class="container content mt-5">
-    <app-table [items]="pagamentos" (filters)="filter($event)">
-        <tr header>
-            <th scope="col">Usuario <em (click)="filter('username', true)" class="dropdown-toggle"></em></th>
-            <th scope="col">Ttulo <em (click)="filter('title', true)" class="dropdown-toggle"></em></th>
-            <th scope="col">Data <em (click)="filter('date', true)" class="dropdown-toggle"></em></th>
-            <th scope="col">Valor <em (click)="filter('value', true)" class="dropdown-toggle"></em></th>
-            <th scope="col">Pago <em (click)="filter('isPayed', true)" class="dropdown-toggle"></em></th>
-            <th scope="col"></th>
+<button class="btn btn-sm btn-primary float-right" title="adicionar pagamento" (click)="openModal()">ADICIONAR
+    PAGAMENTO</button>
+
+<app-table [items]="pagamentos" (filters)="filter($event)">
+    <tr header>
+        <th scope="col">Usuario <em (click)="filter('username', true)" class="dropdown-toggle"></em></th>
+        <th scope="col">Ttulo <em (click)="filter('title', true)" class="dropdown-toggle"></em></th>
+        <th scope="col">Data <em (click)="filter('date', true)" class="dropdown-toggle"></em></th>
+        <th scope="col">Valor <em (click)="filter('value', true)" class="dropdown-toggle"></em></th>
+        <th scope="col">Pago <em (click)="filter('isPayed', true)" class="dropdown-toggle"></em></th>
+        <th scope="col"></th>
+    </tr>
+    <ng-template appTableBody let-item>
+        <tr>
+            <th scope="row">{{ item.name }} <br><small>@{{ item.username }}</small></th>
+            <td>{{ item.title }}</td>
+            <td>{{ item.date | date: 'dd MMM y' }} <br><small>{{ item.hours }}</small></td>
+            <td>{{ item.value | money }}</td>
+            <td><input type="checkbox" value="true" [checked]="item.isPayed"></td>
+            <td>
+                <em class="fa fa-pencil mr-3" title="editar" (click)="update(item)"></em>
+                <em class="fa fas far fa-times-circle" title="remover" (click)="remover(item)"></em>
+            </td>
         </tr>
-        <ng-template appTableBody let-item>
-            <tr>
-                <th scope="row">{{ item.name }} <br><small>@{{ item.username }}</small></th>
-                <td>{{ item.title }}</td>
-                <td>{{ item.date  | date: 'dd MMM y' }} <br><small>{{ item.hours }}</small></td>
-                <td>{{ item.value | money }}</td>
-                <td><input type="checkbox" value="true" [checked]="item.isPayed"></td>
-                <td>
-                    <em class="fa fa-pencil mr-3" title="editar" (click)="update(item)"></em>
-                    <em class="fa fas far fa-times-circle" title="remover" (click)="remover(item)"></em>
-                </td>
-            </tr>
-        </ng-template>
-    </app-table>
-</div>
+    </ng-template>
+</app-table>

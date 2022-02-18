@@ -1,0 +1,20 @@
+<H3>Usuarios</H3>
+<button class="btn btn-sm btn-primary float-right" title="adicionar Usuario" [disabled]="true" (click)="openModal()">ADICIONAR USÚARIO</button>
+
+<app-table [items]="dataSource" (filters)="filter($event)">
+    <tr header>
+        <th scope="col">Nome <em (click)="filter('name', true)" class="dropdown-toggle"></em></th>
+        <th scope="col">Email <em (click)="filter('email', true)" class="dropdown-toggle"></em></th>
+        <th scope="col"></th>
+    </tr>
+    <ng-template appTableBody let-item>
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.email }}</td>
+            <td>
+                <em class="fa fa-pencil mr-3" title="editar" disabled="true" (click)="update(item)"></em>
+                <em class="fa fas far fa-times-circle" title="remover" disabled="true" (click)="remover(item)"></em>
+            </td>
+        </tr>
+    </ng-template>
+</app-table>

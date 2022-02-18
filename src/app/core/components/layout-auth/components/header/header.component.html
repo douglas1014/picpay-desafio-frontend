@@ -7,7 +7,14 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav mr-auto"></ul>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="text-decoration-none" [routerLink]="['/usuarios']">Usuarios<span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item active ml-3">
+        <a class="text-decoration-none" [routerLink]="['/pagamentos']">Pagamentos<span class="sr-only"></span></a>
+      </li>
+    </ul>
     <img src="../../../../../../assets/Ellipse 2.png" class="rounded-circle mr-2" alt="...">
     <span class="navbar-text">
       <div class="btn-group">
